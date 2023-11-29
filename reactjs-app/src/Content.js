@@ -1,7 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import ItemList from "./ItemList";
 
-const Content = () => {
+const Content = ({ items, handleCheck, handleDel }) => {
   // const [person, setPerson] = useState("Dhanush");
   // function randomNames() {
   //   setPerson(() => {
@@ -36,23 +36,7 @@ const Content = () => {
   //     return count - 1;
   //   });
   // }
-  const [items, setItems] = useState([
-    {
-      id: 1,
-      checked: true,
-      item: "Practice Coding",
-    },
-    {
-      id: 2,
-      checked: true,
-      item: "Learn English",
-    },
-    {
-      id: 2,
-      checked: true,
-      item: "Playing Cricket",
-    },
-  ]);
+
   return (
     <main>
       {/*<p>Hi {person} Welcome</p>
@@ -62,15 +46,15 @@ const Content = () => {
       <span>{count}</span>
       <button onClick={() => increment()}>+</button> 
       <button onClick={() => randomNames()}>Click Me</button> */}
-      <ul>
-        {items.map((item) => (
-          <li>
-            <input type="checkbox" checked={item.checked} />
-            <label htmlFor="">{item.item}</label>
-            <button className="btn">Delete</button>
-          </li>
-        ))}
-      </ul>
+      {items.length ? (
+        <ItemList
+          items={items} //We don't write setItems, because we already declared in functions
+          handleCheck={handleCheck}
+          handleDel={handleDel}
+        />
+      ) : (
+        <p>Your list is Empy</p>
+      )}
     </main>
   );
 };
