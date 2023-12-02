@@ -38,7 +38,7 @@ const Content = ({ items, handleCheck, handleDel }) => {
   // }
 
   return (
-    <main>
+    <>
       {/*<p>Hi {person} Welcome</p>
        click event 
        <button onClick={() => handleClickTwo("Dhanush")}>Click me</button>
@@ -55,7 +55,7 @@ const Content = ({ items, handleCheck, handleDel }) => {
       ) : (
         <p>Your list is Empy</p>
       )}
-    </main>
+    </>
   );
 };
 
